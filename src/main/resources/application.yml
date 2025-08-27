@@ -1,0 +1,18 @@
+server:
+  port: 3253
+spring:
+  application:
+    name: project
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      enabled: true
+      maxFileSize: 4096MB
+      maxRequestSize: 4096MB
+
+# 统一开关配置
+enable:
+  login: false
+  scheduling: false
+  minio: false

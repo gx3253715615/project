@@ -1,0 +1,56 @@
+# 编译输出
+/target/
+!/src/main/resources/static/           # 保留静态资源
+!/src/main/resources/templates/        # 保留模板
+
+# IDE相关
+.idea/
+*.iml
+*.ipr
+*.iws
+*.class
+
+# 日志和临时文件
+*.log
+logs/
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# 系统文件
+ehthumbs.db
+desktop.ini
+
+# Maven缓存
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# 操作系统临时文件
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# IntelliJ
+out/
+.idea/
+
+# VSCode
+.vscode/
+
+# 环境配置（本地）
+.env
+
+# Redis / MySQL 数据快照（如导出的临时文件）
+*.rdb
+*.sql
+
+# jar包（如果有上传或构建）
+*.jar
+*.war
+*.zip

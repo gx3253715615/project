@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/project?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: 121.196.234.221
+      port: 6379
+      database: 15
+      password: 111111
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: always
+
+mybatis-flex:
+  mapper-package: com.example.project.mapper
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.project.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  audit: true # SQL审计, 开启后控制台和日志中会打印所有SQL
+
+# jwt密钥
+jwt:
+  key: 9qtO+AJ84BFgsE5IcFQbYrk8KkrgWP7zTKJcBgD+2cw=
+  expire-time: 604800000 # 7天
+
+minio:
+  endpoint:
+  accessKey:
+  secretKey:
+  bucketName:

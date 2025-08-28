@@ -13,6 +13,6 @@ spring:
 
 # 统一开关配置
 enable:
-  login: false
-  scheduling: false
-  minio: false
+  login: false # 是否需要登录才能访问接口
+  scheduling: false # 是否启动定时任务
+  minio: false # 是否启动minio

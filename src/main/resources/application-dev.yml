@@ -18,9 +18,9 @@ spring:
     default-property-inclusion: always
 
 mybatis-flex:
-  mapper-package: com.example.project.mapper
+  mapper-package: com.github.project.mapper
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.example.project.entity
+  type-aliases-package: com.github.project.entity
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl

@@ -1,5 +1,7 @@
 package com.github.project.model.entity;
 
+import com.github.project.anno.Sensitive;
+import com.github.project.enums.SensitiveTypeEnum;
 import com.github.project.handler.listener.MyInsertListener;
 import com.github.project.handler.listener.MyUpdateListener;
 import com.mybatisflex.annotation.Column;
@@ -22,10 +24,23 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Table(value = "user", onInsert = MyInsertListener.class, onUpdate = MyUpdateListener.class)
 public class User extends Base {
+    /**
+     * 手机号 test
+     */
+    @Sensitive(type = SensitiveTypeEnum.PHONE)
+    @Column(ignore = true)
+    private String phone;
+    /**
+     * 身份证号码 test
+     */
+    @Sensitive(type = SensitiveTypeEnum.IDCARD)
+    @Column(ignore = true)
+    private String idCard;
 
     /**
      * 用户名
      */
+    @Sensitive(type = SensitiveTypeEnum.USERNAME)
     @Column(value = "username")
     private String username;
 
@@ -57,21 +72,13 @@ public class User extends Base {
      * 角色名
      */
     @Column(ignore = true)
-    @RelationManyToOne(
-            selfField = "roleId",
-            targetTable = "role",
-            targetField = "id",
-            valueField = "roleName")
+    @RelationManyToOne(selfField = "roleId", targetTable = "role", targetField = "id", valueField = "roleName")
     private String roleName;
 
     /**
      * 角色是否启用 true 启用 | false 禁用
      */
     @Column(ignore = true)
-    @RelationManyToOne(
-            selfField = "roleId",
-            targetTable = "role",
-            targetField = "id",
-            valueField = "enable")
+    @RelationManyToOne(selfField = "roleId", targetTable = "role", targetField = "id", valueField = "enable")
     private Boolean roleEnable;
 }

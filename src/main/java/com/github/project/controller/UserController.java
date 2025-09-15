@@ -1,6 +1,5 @@
 package com.github.project.controller;
 
-
 import com.github.project.anno.RequirePermission;
 import com.github.project.enums.RoleEnum;
 import com.github.project.model.dto.user.LoginDto;
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
  * 用户管理接口
  *
@@ -28,6 +26,15 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/test")
+    public User test() {
+        User user = new User();
+        user.setUsername("gaoxinyu");
+        user.setPhone("19100000032");
+        user.setIdCard("130000000000000012");
+        return user;
+    }
 
     /**
      * 添加用户信息

@@ -37,7 +37,7 @@ import java.util.Objects;
  * @date 2025/8/27 23:34
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class  UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;

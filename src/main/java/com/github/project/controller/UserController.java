@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 用户管理接口
  *
@@ -29,11 +32,23 @@ public class UserController {
 
     @GetMapping("/test")
     public User test() {
-        User user = new User();
-        user.setUsername("gaoxinyu");
-        user.setPhone("19100000032");
-        user.setIdCard("130000000000000012");
-        return user;
+        // 创建一个集合，每3秒向里面添加100个User对象，死循环
+        List<User> list = new ArrayList<>();
+        while (true) {
+            for (int i = 0; i < 100; i++) {
+                User user = new User();
+                user.setUsername("gaoxinyu" + i);
+                user.setPassword("123456");
+                user.setNickname("gaoxinyu" + i);
+                user.setRoleId(1L);
+                list.add(user);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     /**
@@ -116,4 +131,6 @@ public class UserController {
         return userService.removeById(id);
     }
 
+
 }
+

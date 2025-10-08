@@ -25,6 +25,7 @@ import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -144,12 +145,13 @@ public class  UserServiceImpl extends ServiceImpl<UserMapper, User> implements U
      * @return User 用户实体对象
      */
     @Override
+    @Cacheable(value = "userInfo:", key = "#id")
     public User getUserById(Long id) {
         // 1. 查询用户信息和关联信息
         QueryWrapper selectOneQueryWrapper = QueryWrapper.create()
-                .select(
-                ).where(UserTableDef.USER.ID.eq(id));
-        return userMapper.selectOneWithRelationsByQuery(selectOneQueryWrapper);
+                .select(UserTableDef.USER.DEFAULT_COLUMNS).where(UserTableDef.USER.ID.eq(id));
+        User user = userMapper.selectOneWithRelationsByQuery(selectOneQueryWrapper);
+        return user;
     }
 
     /**

@@ -14,4 +14,6 @@ class JwtUtilTest {
         String base64Key = Base64.getEncoder().encodeToString(key);
         System.out.println(base64Key);
     }
+
+
 }

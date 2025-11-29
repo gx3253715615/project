@@ -1,6 +1,8 @@
 package com.github.project;
 
+import com.github.project.mapper.RoleMapper;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -11,4 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
  **/
 @SpringBootTest
 public class BaseTest {
+
+    @Mock
+    private RoleMapper roleMapper;
+
+
 }

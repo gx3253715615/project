@@ -1,5 +1,10 @@
 spring:
   datasource:
+    hikari:
+      max-lifetime: 1800000
+      idle-timeout: 1800000
+      connection-timeout: 30000 # 获取连接最大超时时间
+      maximum-pool-size: 60
     url: jdbc:mysql://127.0.0.1:3306/project?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

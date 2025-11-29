@@ -192,12 +192,6 @@ class ComplexSortAlgo {
         int gt = right;
         int eq = left + 1;
 
-        // 3 2 5 3 1
-        // 3 2 5 3 1
-        // 3 2 1 3 5
-        // 3 2 1 3 5
-        //     lt  eq
-        //
         while (eq <= gt) {
             if (nums[eq] == pivot) {
                 eq++;
